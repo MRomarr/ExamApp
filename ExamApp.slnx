@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="ExamApp.API/ExamApp.API.csproj" Id="8c8058a7-dc8b-480b-82bf-5288bf0b2f2b" />
+    <Project Path="ExamApp.Application/ExamApp.Application.csproj" />
+    <Project Path="ExamApp.Domain/ExamApp.Domain.csproj" />
+    <Project Path="ExamApp.Infrastructure/ExamApp.Infrastructure.csproj" />
+    <Project Path="SharedKernel/SharedKernel.csproj" />
+  </Folder>
+</Solution>
