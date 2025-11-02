@@ -1,5 +1,8 @@
-﻿using ExamApp.Infrastructure.Repositories;
+﻿using ExamApp.Infrastructure.Identity;
+using ExamApp.Infrastructure.Jobs;
+using ExamApp.Infrastructure.Repositories;
 using ExamApp.Infrastructure.Services.TokenProvider;
+using Hangfire;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -19,11 +22,13 @@ namespace ExamApp.Infrastructure
                 .AddDbContext(configuration)
                 .AddIdentity()
                 .AddJWT(configuration, env)
+                .AddBackgroundJobs(configuration)
                 .AddRepositores();
 
 
             return services;
         }
+
         private static IServiceCollection AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection")
@@ -78,7 +83,18 @@ namespace ExamApp.Infrastructure
                     };
                 });
 
-            //services.AddScoped<ITokenProvider, JwtTokeProvider>();
+            services.AddScoped<ITokenProvider, JwtTokeProvider>();
+
+            return services;
+        }
+        private static IServiceCollection AddBackgroundJobs(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddScoped<RefreshTokenCleanupJob>();
+
+            services.AddHangfire(cfg => cfg
+                    .UseSqlServerStorage(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddHangfireServer();
 
             return services;
         }
@@ -86,7 +102,8 @@ namespace ExamApp.Infrastructure
         {
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<IUserContext, UserContext>();
 
             return services;
         }

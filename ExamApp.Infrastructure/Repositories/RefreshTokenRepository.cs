@@ -6,7 +6,17 @@
         {
             await dbContext.RefreshTokens.AddAsync(token);
         }
-
+        public async Task<IEnumerable<RefreshToken>> GetByUserIdAsync(string userId)
+        {
+            var tokens = await dbContext.RefreshTokens.Where(r => r.UserId == userId).ToListAsync();
+            return tokens;
+        }
+        public async Task<RefreshToken?> GetByTokenAsync(string token)
+        {
+            return await dbContext.RefreshTokens
+                 .Include(r => r.User)
+                 .FirstOrDefaultAsync(r => r.Token == token);
+        }
         public async Task SaveChangesAsync() => await dbContext.SaveChangesAsync();
 
     }

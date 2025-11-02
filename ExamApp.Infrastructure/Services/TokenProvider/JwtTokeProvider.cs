@@ -49,7 +49,7 @@ namespace ExamApp.Infrastructure.Services.TokenProvider
                 issuer: issuer,
                 audience: audience,
                 claims: climas,
-                expires: DateTime.UtcNow.AddMinutes(_jwtSettings.ExpirationInMinutes),
+                expires: DateTime.UtcNow.AddMinutes(_jwtSettings.TokenExpirationInMinutes),
                 signingCredentials: signingCredentials
             );
             return new JwtSecurityTokenHandler().WriteToken(jwtToken);
