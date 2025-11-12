@@ -1,6 +1,6 @@
 # ExamApp
 
-A modular **ASP.NET Core Web API** built using **Clean Architecture** principles.  
+A  **ASP.NET Core Web API** built using **Clean Architecture** principles.  
 It manages exams, questions, submissions, and results — designed for scalability, testability, and clean separation of concerns.
 
 ---
@@ -17,15 +17,6 @@ ExamApp.sln
 
 
 
-## ✅ Features
-
-- Follows **Clean Architecture** for maintainable and scalable structure  
-- Uses **Entity Framework Core** for data persistence  
-- **Dependency Injection** and **Repository + Unit of Work** patterns  
-- **JWT Authentication** and role-based authorization ready  
-- **Error handling**, **logging**, and **validation** at the Application layer  
-- Designed for easy testing and extension
-- 
 ## ✅ Features
 
 - 👤 **Exam Management** — Secure user registration, login, and exam submission workflows.  
@@ -49,6 +40,5 @@ ExamApp.sln
 - **JWT Authentication**
 - **Clean Architecture**
 - **Automapper**
-- 
 ---
 
