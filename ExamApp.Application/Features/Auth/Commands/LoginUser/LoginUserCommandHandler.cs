@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace ExamApp.Application.Features.Auth.LoginUser
+namespace ExamApp.Application.Features.Auth.Commands.LoginUser
 {
     internal class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Result<AuthDto>>
     {

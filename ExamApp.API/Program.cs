@@ -7,7 +7,6 @@ using HangfireBasicAuthenticationFilter;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services
     .AddPresentation()
     .AddApplication()
@@ -15,6 +14,7 @@ builder.Services
 
 var app = builder.Build();
 
+#region Development 
 if (app.Environment.IsDevelopment())
 {
     #region swagger
@@ -26,7 +26,9 @@ if (app.Environment.IsDevelopment())
     });
     #endregion
 }
+#endregion
 
+#region hangfire
 app.UseHangfireDashboard("/hangfire", new DashboardOptions
 {
     Authorization = new[] { new HangfireCustomBasicAuthenticationFilter(){
@@ -35,10 +37,10 @@ app.UseHangfireDashboard("/hangfire", new DashboardOptions
     } },
 });
 HangfireJobsConfigurator.ConfigureRecurringJobs();
+#endregion
 app.UseExceptionHandler();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();

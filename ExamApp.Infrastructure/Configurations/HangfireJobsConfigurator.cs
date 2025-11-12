@@ -1,5 +1,4 @@
-﻿using ExamApp.Infrastructure.Jobs;
-using Hangfire;
+﻿using Hangfire;
 
 namespace ExamApp.Infrastructure.Configurations
 {
@@ -7,10 +6,10 @@ namespace ExamApp.Infrastructure.Configurations
     {
         public static void ConfigureRecurringJobs()
         {
-            RecurringJob.AddOrUpdate<RefreshTokenCleanupJob>(
+            RecurringJob.AddOrUpdate<IRefreshTokenCleanupJob>(
                 "refresh-token-cleanup",
-                job => job.RunAsync(),
-                Cron.Minutely);
+                job => job.RunAsync(CancellationToken.None),
+                Cron.Daily(2)); // Run at 2 AM daily instead of every minute
         }
     }
 }

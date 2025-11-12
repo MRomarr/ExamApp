@@ -1,5 +1,4 @@
-﻿
-namespace ExamApp.Application.Features.Auth.Logout
+﻿namespace ExamApp.Application.Features.Auth.Commands.Logout
 {
     internal class LogoutCommandHandelr : IRequestHandler<LogoutCommand, Result>
     {

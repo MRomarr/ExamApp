@@ -1,4 +1,4 @@
-﻿using ExamApp.Application.Features.Auth.RegisterUser;
+﻿using ExamApp.Application.Features.Auth.Commands.RegisterUser;
 
 namespace ExamApp.Application.Features.Auth
 {

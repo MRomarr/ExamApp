@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace ExamApp.Application.Features.Auth.RegisterUser
+namespace ExamApp.Application.Features.Auth.Commands.RegisterUser
 {
     internal class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, Result<AuthDto>>
     {

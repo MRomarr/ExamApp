@@ -1,7 +1,7 @@
-﻿using ExamApp.Application.Features.Auth.LoginUser;
-using ExamApp.Application.Features.Auth.Logout;
-using ExamApp.Application.Features.Auth.RefreshToken;
-using ExamApp.Application.Features.Auth.RegisterUser;
+﻿using ExamApp.Application.Features.Auth.Commands.LoginUser;
+using ExamApp.Application.Features.Auth.Commands.Logout;
+using ExamApp.Application.Features.Auth.Commands.RefreshToken;
+using ExamApp.Application.Features.Auth.Commands.RegisterUser;
 
 namespace ExamApp.API.Controllers
 {

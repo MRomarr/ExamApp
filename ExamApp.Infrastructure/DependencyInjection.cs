@@ -95,6 +95,9 @@ namespace ExamApp.Infrastructure
                     .UseSqlServerStorage(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddHangfireServer();
+            services.AddScoped<IAutoSubmitExamJob, AutoSubmitExamJob>();
+            services.AddScoped<IBackgroundJobService, HangfireBackgroundJobService>();
+
 
             return services;
         }
@@ -104,6 +107,7 @@ namespace ExamApp.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IUserContext, UserContext>();
+            services.AddScoped<IExamRepository, ExamRepository>();
 
             return services;
         }

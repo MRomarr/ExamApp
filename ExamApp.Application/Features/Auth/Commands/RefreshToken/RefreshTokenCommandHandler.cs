@@ -1,4 +1,4 @@
-﻿namespace ExamApp.Application.Features.Auth.RefreshToken
+﻿namespace ExamApp.Application.Features.Auth.Commands.RefreshToken
 {
     internal class RefreshTokenCommandHandler : IRequestHandler<RefreshTokenCommand, Result<AuthDto>>
     {

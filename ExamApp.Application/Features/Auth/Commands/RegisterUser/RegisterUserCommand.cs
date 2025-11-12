@@ -1,4 +1,4 @@
-﻿namespace ExamApp.Application.Features.Auth.RegisterUser
+﻿namespace ExamApp.Application.Features.Auth.Commands.RegisterUser
 {
     public class RegisterUserCommand : IRequest<Result<AuthDto>>
     {
