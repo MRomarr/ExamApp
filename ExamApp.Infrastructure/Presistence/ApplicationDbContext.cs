@@ -14,7 +14,6 @@
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Question> Questions { get; set; }
-        public DbSet<QuestionOption> QuestionOptions { get; set; }
         public DbSet<StudentExam> StudentExams { get; set; }
         public DbSet<StudentAnswer> StudentAnswers { get; set; }
 

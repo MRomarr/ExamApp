@@ -17,7 +17,6 @@ namespace ExamApp.API.Controllers
     public class ExamController(IMediator mediator) : ControllerBase
     {
 
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -48,6 +47,7 @@ namespace ExamApp.API.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> CreateExam(CreateExamCommand command)
         {
             var result = await mediator.Send(command);
@@ -58,6 +58,7 @@ namespace ExamApp.API.Controllers
 
 
         [HttpPut]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> UpdateExam(UpdateExamCommand command)
         {
             var result = await mediator.Send(command);
@@ -68,6 +69,7 @@ namespace ExamApp.API.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> DeleteExam(string id)
         {
             var result = await mediator.Send(new DeleteExamCommand(id));

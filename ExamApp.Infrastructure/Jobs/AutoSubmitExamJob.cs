@@ -22,7 +22,6 @@ namespace ExamApp.Infrastructure.Jobs
                 var studentExam = await _context.StudentExams
                     .Include(se => se.Exam)
                     .Include(se => se.StudentAnswers)
-                        .ThenInclude(sa => sa.SelectedQuestionOption)
                     .Include(se => se.StudentAnswers)
                         .ThenInclude(sa => sa.Question)
                     .FirstOrDefaultAsync(se => se.Id == studentExamId, cancellationToken);
@@ -59,8 +58,7 @@ namespace ExamApp.Infrastructure.Jobs
 
                     // Calculate score
                     studentExam.Score = studentExam.StudentAnswers
-                        .Where(sa => sa.SelectedQuestionOption?.IsCorrect == true)
-                        .Sum(sa => sa.Question?.Marks ?? 0);
+                        .Count(sa => sa.SelectedOptionIndex == sa.Question.CorrectOptionIndex);
 
                     await _context.SaveChangesAsync(cancellationToken);
 

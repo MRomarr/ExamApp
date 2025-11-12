@@ -7,6 +7,7 @@
         public double Marks { get; set; }
         public string ExamId { get; set; }
         public Exam Exam { get; set; }
-        public ICollection<QuestionOption> QuestionOptions { get; set; } = new List<QuestionOption>();
+        public List<string> Options { get; set; }
+        public int CorrectOptionIndex { get; set; }
     }
 }

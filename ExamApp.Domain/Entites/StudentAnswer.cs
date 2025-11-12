@@ -7,7 +7,6 @@
         public StudentExam StudentExam { get; set; }
         public string QuestionId { get; set; }
         public Question Question { get; set; }
-        public string SelectedAnswerOptionId { get; set; }
-        public QuestionOption SelectedQuestionOption { get; set; }
+        public int SelectedOptionIndex { get; set; }
     }
 }

@@ -13,7 +13,6 @@
         {
             return await _context.Exams
                 .Include(e => e.Questions)
-                .ThenInclude(q => q.QuestionOptions)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
     }
