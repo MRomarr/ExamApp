@@ -23,7 +23,7 @@ ExamApp.sln
 - 🛠 **Admin Panel** — Full control to create, update, assign, and delete exams.  
 - 🔐 **Authentication & Authorization** — JWT-based authentication with role-based access (Admin / User).  
 - 🗂 **Clean Architecture** — Layered separation of concerns ensuring maintainability and scalability.  
-- ⚙️ **CQRS + Mediator Pattern** — Command and Query segregation powered by MediatR for clean request handling.  
+- ⚙️ **CQRS + Mediator Pattern** — Command and Query segregation by MediatR for clean request handling.  
 - 🧾 **FluentValidation** — Strongly-typed validation integrated at the Application layer.  
 - 🧠 **Logging with ILogger** — Centralized and structured logging for better debugging and traceability.  
 - 📦 **Repository & Unit of Work Patterns** — Consistent data access and transaction management.  
@@ -41,4 +41,8 @@ ExamApp.sln
 - **Clean Architecture**
 - **Automapper**
 ---
+
+## ERD
+
+<img width="1187" height="650" alt="image" src="https://github.com/user-attachments/assets/01f2d6b5-d30b-4c75-90d2-1d3adef2284c" />
 
